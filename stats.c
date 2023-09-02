@@ -23,7 +23,92 @@ int main()
                                 201, 6, 12, 60, 8, 2, 5, 67,
                                 7, 87, 250, 230, 99, 3, 100, 90};
 
-    /* Other Variable Declarations Go Here */
-    /* Statistics and Printing Functions Go Here */
+    print_statistics(test);
     return 0;
+}
+
+/* Add other Implementation File Code Here */
+void find_minimum(unsigned char *t)
+{
+    int j = 10000000;
+    for (unsigned int i = 0; i < SIZE; i++)
+    {
+        if (j > t[i])
+        {
+            j = t[i];
+            /* code */
+        }
+    }
+    printf("The min is: %u \n", j);
+}
+
+void find_maximum(unsigned char *t)
+{
+    int j = 0;
+    for (unsigned int i = 0; i < SIZE; i++)
+    {
+        if (j < t[i])
+        {
+            j = t[i];
+            /* code */
+        }
+    }
+    printf("The max is: %u \n", j);
+}
+
+void find_mean(unsigned char *t)
+{
+    int sum = 0;
+    for (unsigned int i = 0; i < SIZE; i++)
+    {
+        sum += t[i];
+    }
+    printf("The mean is: %u \n", sum / SIZE);
+}
+
+void find_median(unsigned char *t)
+{
+    int arr_size = sizeof(sort_array(t)) / sizeof(t[0]);
+    // print_array(sort_array(t));
+    printf("The median is: %u \n", t[SIZE / 2]);
+}
+
+void print_statistics(unsigned char *test)
+{
+    print_array(test);
+    printf("The sorted array is:\n");
+    print_array(sort_array(test));
+    find_minimum(test);
+    find_maximum(test);
+    find_mean(test);
+    find_median(test);
+}
+
+unsigned char *sort_array(unsigned char *arr)
+{
+    int i, j;
+    for (i = 0; i < SIZE - 1; i++)
+    {
+        for (j = 0; j < SIZE - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                // Swap arr[j] and arr[j+1]
+                unsigned char temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+void print_array(unsigned char *t)
+{
+    printf("[ ");
+    for (unsigned int i = 0; i < SIZE; i++)
+    {
+        printf("%u  ", t[i]);
+    }
+    printf("]\n");
 }
