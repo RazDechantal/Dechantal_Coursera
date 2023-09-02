@@ -68,9 +68,14 @@ void find_mean(unsigned char *t)
 
 void find_median(unsigned char *t)
 {
-    int arr_size = sizeof(sort_array(t)) / sizeof(t[0]);
-    // print_array(sort_array(t));
-    printf("The median is: %u \n", t[SIZE / 2]);
+    if (SIZE % 2 == 0)
+    {
+        printf("The median 3 is: %u \n", (t[SIZE / 2] + t[(SIZE / 2) - 1]) / 2);
+    }
+    else
+    {
+        printf("The median 3 is: %u \n", t[SIZE / 2]);
+    }
 }
 
 void print_statistics(unsigned char *test)
@@ -91,7 +96,7 @@ unsigned char *sort_array(unsigned char *arr)
     {
         for (j = 0; j < SIZE - i - 1; j++)
         {
-            if (arr[j] > arr[j + 1])
+            if (arr[j] < arr[j + 1])
             {
                 // Swap arr[j] and arr[j+1]
                 unsigned char temp = arr[j];
