@@ -1,3 +1,19 @@
+/**
+ * @file stats.c
+ * @brief analyze an array of unsigned char data items
+ *
+ * couple of functions that can analyze an array of unsigned char data items and report analytics on the maximum, minimum, mean, and median of the data set.
+ *
+ * @author Raz Dechantal
+ * @date 02/09/2023
+ *
+ */
+
+#include <stdio.h>
+#include "stats.h"
+
+/* Size of the Data Set */
+#define SIZE (40)
 
 int main()
 {
